@@ -149,7 +149,7 @@ void mupePowerServerTask(void *pvParameters) {
 			sprintf(json,
 					"{\"src\":\"%s\", \"parmas\":{\"ts\":%llu,\"l1\":%f,\"l2\":%f,\"l3\":%f,\"l123\":%f }}",
 					topic, now / 1000, getl1(), getl2(), getl3(),
-					getl1() + getl2() + getl3());
+					(getl1() + getl2() + getl3())*0.57735026919);  //??? But It is
 			mupeClientSend(topic, json);
 			ESP_LOGI(TAG, "vTaskModbus %s", json);
 
